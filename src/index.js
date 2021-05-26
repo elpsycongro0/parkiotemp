@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import Park from './components/Park';
+/*import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -11,7 +12,10 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
+// If you wantt o start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+reportWebVitals();*/
+//const element=React.createElement('h1',{},`Soy ${name}`);
+const container=document.getElementById('root');
+ReactDOM.render(<Park />,container);
