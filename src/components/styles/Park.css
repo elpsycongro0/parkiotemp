@@ -1,0 +1,44 @@
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.Park{
+    margin: 0 auto;
+    width: 90%;
+}
+
+.Park-header{
+    padding:  0,5rem 0;
+    margin:  0 0 2px 0;
+    height: 50px;
+    background-color: #fff;
+    display: flex;
+    justify-content: safe left;
+    box-shadow: -4px 10px 8px rgba(0, 0, 0, 0.1);
+}
+
+.Park-center{
+    position: relative;
+}
+
+.Park-teaser{
+    position: absolute;
+    left: 3%;
+    top: 70%;
+    z-index: 3;
+    justify-content: safe left;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.Park-footer{
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:  0 auto;
+    background-color: #310053;
+    color: #fff;
+}
