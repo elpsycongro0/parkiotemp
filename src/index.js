@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import 'bootstrap/dist/css/bootstrap.css';
-import './globals.css';
+import './index.css';
 
 import Park from './components/Park';
 

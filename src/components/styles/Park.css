@@ -9,13 +9,44 @@ img {
 }
 
 .Park-header{
-    padding:  0,5rem 0;
+    padding:  0 0 10px 10px;
     margin:  0 0 2px 0;
     height: 50px;
     background-color: #fff;
+    display: block;
+    /*justify-content: safe left;*/
+    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.1);
+}
+
+.Park-header-actions{
+    /*margin-top: 15px;*/
     display: flex;
-    justify-content: safe left;
-    box-shadow: -4px 10px 8px rgba(0, 0, 0, 0.1);
+    float: right;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 11pt;
+}
+
+.Park-header-actions-info{
+    padding: 15px 10px 0px 10px;
+}
+
+.Park-header-actions a{
+    padding: 15px 15px;
+    color: #ccc;
+    border-left: 1px solid #ccc;
+    text-decoration: none;
+}
+
+.Park-header-actions a:hover{
+    color: #fff;
+    background-color: #999;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.Park-header-actions img{
+    padding: 15px 10px;
 }
 
 .Park-center{
