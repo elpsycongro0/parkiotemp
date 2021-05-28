@@ -14,7 +14,7 @@ class Park extends React.Component{
                 <div className="Park-center">
                     <div className="Park-teaser">
                         <h1>Encuentra estacionamiento</h1>
-                         en tiempo real
+                         <div>en tiempo real</div>
                     </div>
                     <img src={mapa} alt="mapa"/>
                 </div>
