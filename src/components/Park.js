@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from './Card.js';
 import "./styles/Park.css";
 
 import parkioLogo from '../images/parkio.png'
@@ -21,8 +22,9 @@ class Park extends React.Component{
                 <div className="Park-center">
                     <div className="Park-teaser">
                         <h1>Encuentra estacionamiento</h1>
-                         <div>en tiempo real</div>
+                         <div>En tiempo real</div>
                     </div>
+                    <Card />
                     <img src={mapa} alt="mapa"/>
                 </div>
                 <div className="Park-footer">
