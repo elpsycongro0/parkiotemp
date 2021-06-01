@@ -1,0 +1,61 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position:fixed;
+  background: white;
+  width: 20%;
+  height: auto;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+button {
+  font-size: 24pt;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0px;
+  opacity: 0.3;
+  position: absolute;
+  right: 20px;
+  margin: 0;
+}
+
+button:hover{
+  opacity: 1;
+}
+
+button:before, button:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 24px;
+  width: 2px;
+  background-color: #333;
+}
+
+button:before {
+  transform: rotate(45deg);
+}
+button:after {
+  transform: rotate(-45deg);
+}
