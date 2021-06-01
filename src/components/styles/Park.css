@@ -91,15 +91,3 @@ img {
     background-color: #310053;
     color: #fff;
 }
-
-input{
-    margin: 5px auto;
-    border-radius: 5px;
-}
-
-h2{
-    font-family: 'Roboto', sans-serif;
-    font-size: 14pt;
-    font-weight: bold;
-    margin-top: 10px;
-}

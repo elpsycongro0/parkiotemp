@@ -1,6 +1,9 @@
 import React from 'react';
 import Card from './Card.js';
 import {Registro} from './Registro.js';
+import RegistroChilds from './RegistroChilds.js';
+import {Acceder} from './Acceder.js';
+import AccederChilds from './AccederChilds.js';
 import "./styles/Park.css";
 
 import parkioLogo from '../images/parkio.png'
@@ -11,18 +14,21 @@ class Park extends React.Component{
     constructor() {
         super();
         this.state = {
-            show: false
+            show: false,
+            which: 0
         };
         this.showModal = this.showModal.bind(this);
         this.hideModal = this.hideModal.bind(this);
     }
 
-    showModal = () => {
+    showModal = (v) => {
         this.setState({ show: true });
+        this.setState({ which: v });
     };
 
     hideModal = () => {
         this.setState({ show: false });
+        this.setState({ which: 0 });
     };
 
     render(){
@@ -32,22 +38,17 @@ class Park extends React.Component{
                     <img src={parkioLogo} alt="logo"/>
                     <div className="Park-header-actions">
                         <div className="Park-header-actions-info">Información</div>
-                        <a href="#" onClick={this.showModal}>REGISTRO</a>
-                        <a href="">ACCEDER</a>
+                        <a href="#" onClick={() => this.showModal(1)}>REGISTRO</a>
+                        <a href="#" onClick={() => this.showModal(2)}>ACCEDER</a>
                         <img src={spain} alt="idioma"/>
                     </div>
                 </div>
-                <Registro show={this.state.show} handleClose={this.hideModal}>
-                    <h2>INTRODUCE TUS DATOS</h2>
-                    <form>
-                    <input type="text" placeholder="Nombres"/>
-                    <input type="text" placeholder="Apellidos"/>
-                    <input type="text" placeholder="Email"/>
-                    <input type="text" placeholder="Confirmar Email"/>
-                    <input type="text" placeholder="Contraseña"/>
-                    <input type="text" placeholder="Confirmar Contraseña"/>
-                    </form>
+                <Registro show={this.state.show} activate={this.state.which} handleClose={this.hideModal}>
+                    <RegistroChilds />
                 </Registro>
+                <Acceder show={this.state.show} activate={this.state.which} handleClose={this.hideModal}>
+                    <AccederChilds />
+                </Acceder>
                 <div className="Park-center">
                     <div className="Park-teaser">
                         <h1>Encuentra estacionamiento</h1>

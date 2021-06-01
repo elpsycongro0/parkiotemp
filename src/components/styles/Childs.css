@@ -1,0 +1,39 @@
+input{
+    margin: 5px auto;
+    border: 2px solid rgba(200,200,200,0.5);
+}
+
+.icono{
+    display: inline;
+    background-color: #ddd;
+    margin: 0;
+    padding: 4px 7px 5px 5px;
+    text-align: center;
+}
+
+.icono-azul{
+    display: inline;
+    background-color: #05f;
+    margin: 0;
+    padding: 5px 7px 8px 5px;
+    text-align: center;
+}
+
+
+h2{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14pt;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.botones{
+    /*box-shadow: none;*/
+    width: 65%;
+    border: 0;
+    margin: 5px 0px 30px 0px;
+    padding:  5px;
+    background-color: #38f;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+}

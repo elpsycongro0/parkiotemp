@@ -1,8 +1,8 @@
 import React from 'react';
 import './styles/Modal.css';
 
-const Registro = ({ handleClose, show, activate, children }) => {
-  const showHideClassName = (show && activate===1) ? "modal display-block" : "modal display-none";
+const Acceder = ({ handleClose, show, activate, children }) => {
+  const showHideClassName = (show && activate===2) ? "modal display-block" : "modal display-none";
 
   return (
     <div className={showHideClassName}>
@@ -16,4 +16,4 @@ const Registro = ({ handleClose, show, activate, children }) => {
   );
 };
 
-export {Registro};
+export {Acceder};
