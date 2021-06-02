@@ -22,7 +22,7 @@ input{
 
 h2{
     font-family: 'Roboto', sans-serif;
-    font-size: 14pt;
+    font-size: 13pt;
     font-weight: bold;
     margin-top: 30px;
 }
@@ -31,9 +31,13 @@ h2{
     /*box-shadow: none;*/
     width: 65%;
     border: 0;
-    margin: 5px 0px 30px 0px;
+    margin: 10px 0px 5px 0px;
     padding:  5px;
     background-color: #38f;
     font-family: 'Roboto', sans-serif;
     color: #fff;
+}
+
+.rojo{
+    color:  red;
 }

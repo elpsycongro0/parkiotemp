@@ -1,7 +1,8 @@
 import React from 'react';
 import Card from './Card.js';
 import {Registro} from './Registro.js';
-import RegistroChilds from './RegistroChilds.js';
+import WrapperRegistro from './RegistroChilds.js';
+import RegistroCompleto from './RegistroCompleto.js';
 import {Acceder} from './Acceder.js';
 import AccederChilds from './AccederChilds.js';
 import "./styles/Park.css";
@@ -15,10 +16,12 @@ class Park extends React.Component{
         super();
         this.state = {
             show: false,
-            which: 0
+            which: 0,
+            isSubmitted: false
         };
         this.showModal = this.showModal.bind(this);
         this.hideModal = this.hideModal.bind(this);
+        this.submitForm = this.submitForm.bind(this);
     }
 
     showModal = (v) => {
@@ -30,6 +33,10 @@ class Park extends React.Component{
         this.setState({ show: false });
         this.setState({ which: 0 });
     };
+
+    submitForm = () => {
+        this.setState({isSubmitted: true});
+    }
 
     render(){
         return (
@@ -44,7 +51,8 @@ class Park extends React.Component{
                     </div>
                 </div>
                 <Registro show={this.state.show} activate={this.state.which} handleClose={this.hideModal}>
-                    <RegistroChilds />
+                    {!this.isSubmitted ? <WrapperRegistro submitForm=
+                        {this.submitForm} /> : <RegistroCompleto />}
                 </Registro>
                 <Acceder show={this.state.show} activate={this.state.which} handleClose={this.hideModal}>
                     <AccederChilds />

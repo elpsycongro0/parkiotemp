@@ -29,7 +29,6 @@
 }
 
 button {
-  font-size: 24pt;
   border: 0;
   background: none;
   box-shadow: none;
@@ -37,7 +36,7 @@ button {
   opacity: 0.3;
   position: absolute;
   right: 20px;
-  margin: 0;
+  margin: 5px 0;
 }
 
 button:hover{
@@ -48,7 +47,7 @@ button:before, button:after {
   position: absolute;
   left: 15px;
   content: ' ';
-  height: 24px;
+  height: 20px;
   width: 2px;
   background-color: #333;
 }

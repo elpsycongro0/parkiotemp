@@ -7,7 +7,7 @@ class AccederChilds extends React.Component{
     render(){
         return (
                 <div>
-                <h2>INTICIA SESIÓN</h2>
+                <h2>INICIA SESIÓN</h2>
                 <form>
                     <input type="text" placeholder="Email"/>
                     <div className="icono"><Icon path={mdiEmail} title="Mail" size={0.8} color="#999"/></div>
@@ -16,6 +16,7 @@ class AccederChilds extends React.Component{
                     <input type="submit" className="botones" value="Acceder"/>
                     <div className="icono-azul"><Icon path={mdiChevronRight} title="Advance" size={0.8} color="#fff"/></div>
                 </form>
+                <p>¿No tienes cuenta? <a href="">Registrate</a></p>
                 </div>
                 );
     }
