@@ -53,9 +53,8 @@ class RegistroChilds extends React.Component{
     }
 }
 
-function WrapperComponent(submitForm) {
+function WrapperComponent({submitForm}) {
   const { handleChange, values, handleSubmit, errors } = useForm(submitForm, validate);
-
   return <RegistroChilds handleChange={handleChange} values={values} handleSubmit={handleSubmit} errors={errors}/>;
 }
 

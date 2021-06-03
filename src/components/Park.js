@@ -4,7 +4,8 @@ import {Registro} from './Registro.js';
 import WrapperRegistro from './RegistroChilds.js';
 import RegistroCompleto from './RegistroCompleto.js';
 import {Acceder} from './Acceder.js';
-import AccederChilds from './AccederChilds.js';
+import WrapperAcceder from './AccederChilds.js';
+import AccederCompleto from './AccederCompleto.js';
 import "./styles/Park.css";
 
 import parkioLogo from '../images/parkio.png'
@@ -19,11 +20,13 @@ class Park extends React.Component{
         this.state = {
             show: false,
             which: 0,
-            isSubmitted: false
+            isSubmitted: false,
+            isLogged: false
         };
         this.showModal = this.showModal.bind(this);
         this.hideModal = this.hideModal.bind(this);
         this.submitForm = this.submitForm.bind(this);
+        this.logForm = this.logForm.bind(this);
     }
 
     showModal = (v) => {
@@ -38,6 +41,10 @@ class Park extends React.Component{
 
     submitForm = () => {
         this.setState({isSubmitted: true});
+    }
+
+    logForm = () => {
+        this.setState({isLogged: true});
     }
 
     render(){
@@ -57,11 +64,12 @@ class Park extends React.Component{
                     </div>
                 </div>
                 <Registro show={this.state.show} activate={this.state.which} handleClose={this.hideModal}>
-                    {!this.isSubmitted ? <WrapperRegistro submitForm=
-                        {this.submitForm} /> : <RegistroCompleto />}
+                    {!this.state.isSubmitted ? <WrapperRegistro submitForm=
+                       {this.submitForm} /> : <RegistroCompleto />}
                 </Registro>
                 <Acceder show={this.state.show} activate={this.state.which} handleClose={this.hideModal}>
-                    <AccederChilds />
+                    {!this.state.isLogged ? <WrapperAcceder submitForm=
+                       {this.logForm} /> : <AccederCompleto />}
                 </Acceder>
                 <div className="Park-center">
                     {/* <Router> */}
