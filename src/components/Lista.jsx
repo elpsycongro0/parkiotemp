@@ -1,37 +1,70 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import Card from './Card.jsx'
 import "./styles/Lista.css";
+import axios from 'axios'
 
 const Lista = (props) => {
 
-    const genEstacionamiento = (ids,nombres,precios,puntuacions,ubicacions,descripcions) =>{
-        return({
-            id:ids,
-            nombre:nombres,
-            precio:precios,
-            puntuacion:puntuacions,
-            ubicacion:ubicacions,
-            descripcion:descripcions
+    // const genEstacionamiento = (ids,nombres,precios,puntuacions,ubicacions,descripcions,lats,longs) =>{
+    //     return({
+    //         id:ids,
+    //         nombre:nombres,
+    //         precio:precios,
+    //         puntuacion:puntuacions,
+    //         ubicacion:ubicacions,
+    //         descripcion:descripcions,
+    //         lat:lats,
+    //         long:longs
+    //     })
+    // }
+    
+    
+
+    const [datos, setDatos] = useState(
+        [
+        // genEstacionamiento("1","park","5","6","Plaza","con sombra","5","6"),
+        // genEstacionamiento("2","Portales","7","8","Plaza de armas","sin sombra","5","6"),
+        // genEstacionamiento("3","parking spot","7","8","Plaza Vea","con sombra, asienteos","5","6"),
+        // genEstacionamiento("4","terreno","7","8","Estadio de la Unsa","Cno sombre","5","6"),
+        // genEstacionamiento("5","casa","7","8","Av. La Marina","Buena atención","5","6"),
+        ]
+    )
+
+
+    const [n, setN] = useState({adsa:""})
+    
+    const datosGET = () =>{
+        axios({
+          method:"GET",
+          url:"https://parkio-9fcbd-default-rtdb.firebaseio.com/bd/Playas.json"
+        }
+        )
+        .then( response =>{
+          setDatos(response.data)
+           console.log(response.data)
         })
-    }
-    
-    
-    const datos =[
-        genEstacionamiento("1","park","5","6","Plaza","con sombra"),
-        genEstacionamiento("2","Portales","7","8","Plaza de armas","sin sombra"),
-        genEstacionamiento("3","parking spot","7","8","Plaza Vea","con sombra, asienteos"),
-        genEstacionamiento("4","terreno","7","8","Estadio de la Unsa","Cno sombre"),
-        genEstacionamiento("5","casa","7","8","Av. La Marina","Buena atención"),
-    ]
+        .catch(error => {
+            console.log(error)
+        })
+      }
 
-
-    const [n, setN] = useState({adsa:"a"})
-    
 
     const xd = () =>{
+        setDatos(datos)
         setN(n)
     }
     // setN({adsa:"da"});
+
+    const gettodo = () =>{
+
+        datosGET()
+        // console.log(datos);
+    }
+    
+      useEffect(() => {
+        gettodo()
+        // console.log(datos);
+      },[]);
 
     return (
         <div>
@@ -49,6 +82,7 @@ const Lista = (props) => {
             <div>
 
                 {
+                    (datos.length===0)?<div className="No-result">No hay Resultados</div>:
                     datos.map(item =>(
                             <Card key={item.id} playa={item}></Card>
                             )
