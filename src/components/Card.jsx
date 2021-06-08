@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "./styles/Card.css";
 import imagen from '../images/playa.jpg'
+import Comentario from './Comentario.jsx'
 
 
 const Card = (props) => {
@@ -18,17 +19,18 @@ const Card = (props) => {
                     <img className="Imagen" src={imagen} alt="" />
                     </div>
 
-                    <div className="col-5">
+                    <div className="col-3">
                     <div className="Card-name">{playa.nombre}</div>
                     <div className="Card-location">{playa.ubicacion}</div>
-                    <div className="Card-data">{playa.precio}</div>
-                    <div className="Card-data">{playa.puntuacion}/10</div>
-                    <div className="Card-opinions-title">Descripcion</div>
+                    <div className="Card-location">Puntuación: {playa.puntuacion}/10 </div>
+                    <div className="Card-location">Precio: $/{playa.precio}</div>
+                    <div className="Card-opinions-title">Descripción</div>
                     <div className="Card-opinions">{playa.descripcion}</div>
 
                     </div>
-                    <div className="col-4">
-                    COMENTARIOS
+                    <div className="col-6">
+                        
+                    <Comentario id={playa.id}></Comentario>
                     </div>
                 </div>
                 </div>

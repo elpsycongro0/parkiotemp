@@ -8,6 +8,14 @@
 .Imagen{
     text-align: right;
 }
+
+.Comentario{
+    
+    overflow-x:hidden;
+    overflow-y: scroll;
+    display: block;
+    height: 5cm;
+}
 .Card123{
     z-index: 3;
     display:    block;

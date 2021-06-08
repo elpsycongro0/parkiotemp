@@ -11,7 +11,8 @@
 }
 .Card123{
     z-index: 3;
-    display:    block;
+    display:list-item;
+    height: 5cm;
     margin:auto;
     margin-top: 1cm;
     width:  90%;
@@ -26,7 +27,7 @@
 .Card-name{
     margin:  0 10px;
     font-weight: bold;
-    font-size: 13pt;
+    font-size: 15pt;
 }
 
 .Card-location{
