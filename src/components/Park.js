@@ -10,7 +10,7 @@ import "./styles/Park.css";
 
 import parkioLogo from '../images/parkio.png'
 /*import mapa from '../images/mapa.png'*/
-import Mapa from './Mapa.js'
+import WrapperMapa from './Mapa.js'
 import spain from '../images/spain.png'
 import { Link,Switch, Route, BrowserRouter as Router} from 'react-router-dom'
 import Lista from './Lista.jsx';
@@ -94,7 +94,7 @@ class Park extends React.Component{
                             </div>
                             {/* <Card /> */}
                         {/*<img src={mapa} alt="mapa"/>*/}
-                            <Mapa />
+                            <WrapperMapa />
                         </Route>
                 
                     </Switch>
