@@ -40,27 +40,22 @@ const Comentario = (props) => {
 
     return (
         <div className="Comentario">
-            <button onClick={()=>xd()}>as</button>
+            <button onClick={()=>xd()}></button>
             <div className="Card-name">
              Comentarios
             </div>
             {
 
-                (lista.length===0)? <h3>No tiene comentarios</h3>:
+                (lista.length===0)? <h6>No tiene comentarios</h6>:
                 lista.map(item=>
                     (
-                        <div >
+                        <div key={item.idc}>
 
-                        <p>
-                            {item.contenido}
-                        </p>
-                        <p>
-                            {item.contenido}
-                        </p>
-                        <p>
-                            {item.contenido}
-                        </p>
-                    </div>)
+                            <p>
+                                {item.contenido}
+                            </p>
+                        </div>
+                    )
                 )
             }
         </div>

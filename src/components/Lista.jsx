@@ -49,10 +49,6 @@ const Lista = (props) => {
       }
 
 
-    const xd = () =>{
-        setDatos(datos)
-        setN(n)
-    }
     // setN({adsa:"da"});
 
     const gettodo = () =>{
@@ -66,14 +62,47 @@ const Lista = (props) => {
         // console.log(datos);
       },[]);
 
+    const [filtronombre, setFiltronombre] = useState("")
+
+    const filt = (ls,name) =>{
+
+      return(ls.filter(item => item.nombre.toLowerCase().includes(name.toLowerCase()) ))
+    }
+
+
+    const order = (ls) =>{
+
+
+      return(
+        <div>
+          hasda
+        </div>
+      )
+    }
+    
+    const actfiltronombre = (s) =>{
+      var ds = (s)?s.target.value:""
+      setFiltronombre(ds)
+    }
+
+
+    const xd = () =>{
+      setDatos(datos)
+      setN(n)
+      order()
+      setFiltronombre(filtronombre)
+      console.log((datos));
+  }
+
     return (
         <div>
+        <button onClick={()=>xd()}>asdsad</button>
 
             <div>
             <form>
           <div >
             {/* <label for="exampleInputEmail1">Ubicación</label> */}
-            <input type="email" className="Barra" id="Location"  placeholder="Ubicación"></input>
+            <input type="email" className="Barra" id="Location" onChange={actfiltronombre}  placeholder="Nombre"></input>
               </div>
             </form>
             </div>
@@ -83,7 +112,7 @@ const Lista = (props) => {
 
                 {
                     (datos.length===0)?<div className="No-result">No hay Resultados</div>:
-                    datos.map(item =>(
+                    filt(datos,filtronombre).map(item =>(
                             <Card key={item.id} playa={item}></Card>
                             )
                             )
@@ -91,7 +120,6 @@ const Lista = (props) => {
                 
             </div>
                 {n.adsa}
-                <button onClick={()=>xd()}></button>
         </div>
     )
 }

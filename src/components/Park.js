@@ -14,6 +14,7 @@ import Mapa from './Mapa.js'
 import spain from '../images/spain.png'
 import { Link,Switch, Route, BrowserRouter as Router} from 'react-router-dom'
 import Lista from './Lista.jsx';
+import Agregar from './Agregar.jsx';
 
 class Park extends React.Component{
     constructor() {
@@ -79,6 +80,10 @@ class Park extends React.Component{
                         
                         <Route path="/busqueda">
                             <Lista></Lista>
+                        </Route>
+                        
+                        <Route path="/agregar">
+                            <Agregar></Agregar>
                         </Route>
                         <Route path="/">
 
