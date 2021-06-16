@@ -9,21 +9,24 @@ import AccederCompleto from './AccederCompleto.js';
 import "./styles/Park.css";
 
 import parkioLogo from '../images/parkio.png'
-/*import mapa from '../images/mapa.png'*/
-import WrapperMapa from './Mapa.js'
+import mapa from '../images/mapa.png'
+/*import WrapperMapa from './Mapa.js'*/
 import spain from '../images/spain.png'
-import { Link,Switch, Route, BrowserRouter as Router} from 'react-router-dom'
+import { Switch, Route, BrowserRouter as Router} from 'react-router-dom'
+import Card from './Card.js'
+import Park from './Park.js'
 import Lista from './Lista.jsx';
 import Agregar from './Agregar.jsx';
 
-class Park extends React.Component{
+class Start extends React.Component{
     constructor() {
         super();
         this.state = {
             show: false,
             which: 0,
             isSubmitted: false,
-            isLogged: false
+            isLogged: false,
+            token: null
         };
         this.showModal = this.showModal.bind(this);
         this.hideModal = this.hideModal.bind(this);
@@ -51,6 +54,9 @@ class Park extends React.Component{
 
     render(){
 
+        if(this.state.token)
+            return <Park />;
+
         return (
             <Router>
 
@@ -59,8 +65,8 @@ class Park extends React.Component{
                     <img src={parkioLogo} alt="logo"/>
                     <div className="Park-header-actions">
                         {/* <div className="Park-header-actions-info">Información</div> */}
-                        <Link to="/#">Información</Link>
-                        <Link to="/busqueda">Búsqueda</Link>
+                        {/*<Link to="/#">Información</Link>
+                        <Link to="/busqueda">Búsqueda</Link>*/}
                         <a href="#" onClick={() => this.showModal(1)}>REGISTRO</a>
                         <a href="#" onClick={() => this.showModal(2)}>ACCEDER</a>
                         <img src={spain} alt="idioma"/>
@@ -78,7 +84,9 @@ class Park extends React.Component{
                     {/* <Router> */}
                         
                     <Switch>
-                        
+                        <Route path="/dashboard">
+                            <Park></Park>
+                        </Route>
                         <Route path="/busqueda">
                             <Lista></Lista>
                         </Route>
@@ -93,9 +101,9 @@ class Park extends React.Component{
                                 <h1>Encuentra estacionamiento</h1>
                                 <div>En tiempo real</div>
                             </div>
-                            {/* <Card /> */}
-                        {/*<img src={mapa} alt="mapa"/>*/}
-                            <WrapperMapa />
+                            <Card />
+                        <img src={mapa} alt="mapa"/>
+ 
                         </Route>
                 
                     </Switch>
@@ -112,4 +120,4 @@ class Park extends React.Component{
     }
 }
 
-export default Park;
+export default Start;

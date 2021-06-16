@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 
-import Park from './components/Park';
+import Start from './components/Start';
 
 const container=document.getElementById('root');
-ReactDOM.render(<Park />,container);
+ReactDOM.render(<Start />,container);

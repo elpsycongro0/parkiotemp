@@ -1,4 +1,7 @@
 .Card-container{
+    position: absolute;
+    left: 80%;
+    top: 10%;
     z-index: 3;
     display:    block;
     width:  15%;
