@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 // import Card from './Card.js';
 
 import {Registro} from './Registro.js';
@@ -6,18 +6,28 @@ import WrapperRegistro from './RegistroChilds.js';
 import RegistroCompleto from './RegistroCompleto.js';
 import {Acceder} from './Acceder.js';
 import WrapperAcceder from './AccederChilds.js';
-import AccederCompleto from './AccederCompleto.js';
+/*import AccederCompleto from './AccederCompleto.js';*/
 import "./styles/Park.css";
 
 import parkioLogo from '../images/parkio.png'
 import mapa from '../images/mapa.png'
 /*import WrapperMapa from './Mapa.js'*/
 import spain from '../images/spain.png'
-import { Switch, Route, BrowserRouter as Router} from 'react-router-dom'
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import Card from './Card.js'
 import Park from './Park.js'
 import Lista from './Lista.jsx';
 import Agregar from './Agregar.jsx';
+
+/*function AuthenticatedRoute({
+    component : isLogged}){
+    return(
+        <Route
+            render={(props) => isLogged === true
+                ? <Park/>
+                : <Redirect to='/' />} />
+        )
+}*/
 
 class Start extends React.Component{
     constructor() {
@@ -26,7 +36,7 @@ class Start extends React.Component{
             show: false,
             which: 0,
             isSubmitted: false,
-            isLogged: false
+            isLogged: false,
         };
         this.showModal = this.showModal.bind(this);
         this.hideModal = this.hideModal.bind(this);
@@ -34,14 +44,6 @@ class Start extends React.Component{
         this.logForm = this.logForm.bind(this);
     }
 
-    static contextTypes = {
-        router: PropTypes.object
-    }
-
-    static propTypes = {
-        history: PropTypes.object.isRequired,
-        routes: PropTypes.element.isRequired
-    }
 
     showModal = (v) => {
         this.setState({ show: true });
@@ -63,6 +65,12 @@ class Start extends React.Component{
 
     render(){
 
+        if(this.state.isLogged)
+            return(
+                <Router>
+                <Park />
+                </Router>);
+
         return (
             <Router>
 
@@ -83,14 +91,15 @@ class Start extends React.Component{
                        {this.submitForm} /> : <RegistroCompleto />}
                 </Registro>
                 <Acceder show={this.state.show} activate={this.state.which} handleClose={this.hideModal}>
-                    {!this.state.isLogged ? <WrapperAcceder submitForm=
-                       {this.logForm} /> : <AccederCompleto />}
+                    {/*{!this.state.isLogged ? <WrapperAcceder submitForm=
+                       {this.logForm} /> : <Redirect to='/dashboard'/>}*/}
+                        <WrapperAcceder submitForm={this.logForm} />
                 </Acceder>
                 <div className="Park-center">
                     {/* <Router> */}
                         
                     <Switch>
-                        <Route path="/dashboard">
+                        <Route path="/dashboard" >
                             <Park></Park>
                         </Route>
                         <Route path="/busqueda">

@@ -14,6 +14,7 @@ const useForm = (callback,validate) =>{
     const [errors,setErrors] = useState({})
 
     const [isSubmitting, setIsSubmitting] = useState(false);
+    /*const [isLogging, setIsLogging] = useState(false);*/
 
     const handleChange = e =>{
         const {name,value} = e.target;
@@ -27,7 +28,6 @@ const useForm = (callback,validate) =>{
         e.preventDefault();
 
         setErrors(validate(values));
-        console.log(callback);
         setIsSubmitting(true);
     }
 
@@ -35,7 +35,7 @@ const useForm = (callback,validate) =>{
         () =>{
             if(Object.keys(errors).length === 0 && isSubmitting){
                 const user = { email: values.email, password : values.password, returnSecureToken: true };
-                axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBO3Kj40C-8p3xcw6YHhO4tV3ueuUe8ozw', user)
+                axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBO3Kj40C-8p3xcw6YHhO4tV3ueuUe8ozw', user)
                 .then(response => callback()).catch(error => console.log(error.response));
                 /*callback();*/
             }

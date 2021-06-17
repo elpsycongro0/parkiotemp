@@ -1,11 +1,11 @@
 import React from 'react';
 // import Card from './Card.js';
-import {Registro} from './Registro.js';
+/*import {Registro} from './Registro.js';
 import WrapperRegistro from './RegistroChilds.js';
 import RegistroCompleto from './RegistroCompleto.js';
 import {Acceder} from './Acceder.js';
 import WrapperAcceder from './AccederChilds.js';
-import AccederCompleto from './AccederCompleto.js';
+import AccederCompleto from './AccederCompleto.js';*/
 import "./styles/Park.css";
 
 import parkioLogo from '../images/parkio.png'
@@ -19,34 +19,15 @@ import Agregar from './Agregar.jsx';
 class Park extends React.Component{
     constructor() {
         super();
-        this.state = {
-            show: false,
-            which: 0,
-            isSubmitted: false,
-            isLogged: false
-        };
-        this.showModal = this.showModal.bind(this);
-        this.hideModal = this.hideModal.bind(this);
-        this.submitForm = this.submitForm.bind(this);
-        this.logForm = this.logForm.bind(this);
+        this.logOut = this.logOut.bind(this);
     }
 
-    showModal = (v) => {
-        this.setState({ show: true });
-        this.setState({ which: v });
-    };
-
-    hideModal = () => {
-        this.setState({ show: false });
-        this.setState({ which: 0 });
-    };
-
-    submitForm = () => {
-        this.setState({isSubmitted: true});
-    }
-
-    logForm = () => {
-        this.setState({isLogged: true});
+    logOut = () =>{
+        console.log("hola");
+        this.context.router.push({
+            pathname: '/',
+            state: {isLogged: false}
+        })
     }
 
     render(){
@@ -61,19 +42,21 @@ class Park extends React.Component{
                         {/* <div className="Park-header-actions-info">Información</div> */}
                         <Link to="/#">Información</Link>
                         <Link to="/busqueda">Búsqueda</Link>
-                        <a href="#" onClick={() => this.showModal(1)}>REGISTRO</a>
-                        <a href="#" onClick={() => this.showModal(2)}>ACCEDER</a>
+                        <a href="/" onClick={this.logOut}>SALIR</a>
+                        {/*<a href="#" onClick={() => this.showModal(1)}>REGISTRO</a>
+                        <a href="#" onClick={() => this.showModal(2)}>ACCEDER</a>*/}
+
                         <img src={spain} alt="idioma"/>
                     </div>
                 </div>
-                <Registro show={this.state.show} activate={this.state.which} handleClose={this.hideModal}>
+                {/*<Registro show={this.state.show} activate={this.state.which} handleClose={this.hideModal}>
                     {!this.state.isSubmitted ? <WrapperRegistro submitForm=
                        {this.submitForm} /> : <RegistroCompleto />}
                 </Registro>
                 <Acceder show={this.state.show} activate={this.state.which} handleClose={this.hideModal}>
                     {!this.state.isLogged ? <WrapperAcceder submitForm=
                        {this.logForm} /> : <AccederCompleto />}
-                </Acceder>
+                </Acceder>*/}
                 <div className="Park-center">
                     {/* <Router> */}
                         
@@ -88,12 +71,12 @@ class Park extends React.Component{
                         </Route>
                         <Route path="/">
 
-
+                            {/*
                             <div className="Park-teaser">
                                 <h1>Encuentra estacionamiento</h1>
                                 <div>En tiempo real</div>
                             </div>
-                            {/* <Card /> */}
+                             <Card /> */}
                         {/*<img src={mapa} alt="mapa"/>*/}
                             <WrapperMapa />
                         </Route>

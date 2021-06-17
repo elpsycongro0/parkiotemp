@@ -1,15 +1,25 @@
 import React from 'react';
+//import {Redirect} from 'react-router-dom';
 import "./styles/Childs.css";
 import Icon from '@mdi/react'
 import {mdiEmail,mdiLock,mdiChevronRight} from '@mdi/js';
 
-import useForm from '../extras/useForm'
+import useLog from '../extras/useLog'
 import validate from '../extras/validateLog'
 
 class AccederChilds extends React.Component{
+    constructor(props){
+        super(props);
+        this.state ={redirect: false}
+    }
+
     render(){
         const { handleChange, values, handleSubmit, errors } = this.props;
+        /*const { from } = this.props.location.state || {from : {pathname: '/'}}
 
+        if(this.state.redirect === true){
+            return <Redirect to={from} />
+        }*/
         return (
                 <div>
                 <h2>INICIA SESIÓN</h2>
@@ -34,7 +44,7 @@ class AccederChilds extends React.Component{
 }
 
 function WrapperComponent({submitForm}) {
-  const { handleChange, values, handleSubmit, errors } = useForm(submitForm, validate);
+  const { handleChange, values, handleSubmit, errors } = useLog(submitForm, validate);
   return <AccederChilds handleChange={handleChange} values={values} handleSubmit={handleSubmit} errors={errors}/>;
 }
 
