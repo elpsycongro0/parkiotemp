@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 // import Card from './Card.js';
+
 import {Registro} from './Registro.js';
 import WrapperRegistro from './RegistroChilds.js';
 import RegistroCompleto from './RegistroCompleto.js';
@@ -25,13 +26,21 @@ class Start extends React.Component{
             show: false,
             which: 0,
             isSubmitted: false,
-            isLogged: false,
-            token: null
+            isLogged: false
         };
         this.showModal = this.showModal.bind(this);
         this.hideModal = this.hideModal.bind(this);
         this.submitForm = this.submitForm.bind(this);
         this.logForm = this.logForm.bind(this);
+    }
+
+    static contextTypes = {
+        router: PropTypes.object
+    }
+
+    static propTypes = {
+        history: PropTypes.object.isRequired,
+        routes: PropTypes.element.isRequired
     }
 
     showModal = (v) => {
@@ -53,9 +62,6 @@ class Start extends React.Component{
     }
 
     render(){
-
-        if(this.state.token)
-            return <Park />;
 
         return (
             <Router>
