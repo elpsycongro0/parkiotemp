@@ -52,12 +52,13 @@ const Comentario = (props) => {
                         <div key={item.idc}>
 
                             <p>
-                                {item.contenido}
+                                {item.idusuario}({item.puntaje}/10): {item.contenido}
                             </p>
                         </div>
                     )
                 )
             }
+            {/* <h6>Añadir coemtnraio</h6> */}
         </div>
     )
 }

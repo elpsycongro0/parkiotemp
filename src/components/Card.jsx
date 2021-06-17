@@ -8,8 +8,12 @@ const Card = (props) => {
 
     const [playa, setPlaya] = useState(props.playa)
 
+    const cambio = () =>{
+        props.sel(props.playa)
+    }
     const xd = () =>{
         setPlaya(playa)
+        cambio()
     }
     return (
             <div className="Card123">
@@ -30,13 +34,13 @@ const Card = (props) => {
                     </div>
                     <div className="col-6">
                         
-                    <Comentario id={playa.id}></Comentario>
+                    <Comentario fd ={false} id={playa.id}></Comentario>
                     </div>
                 </div>
                 </div>
 
 
-                <button onClick={()=>xd()}></button>
+                <button onClick={()=>xd()}>wefwefwe</button>
                 </div>
     )
 }
