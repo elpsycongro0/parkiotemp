@@ -15,6 +15,7 @@ import spain from '../images/spain.png'
 import { Link,Switch, Route, BrowserRouter as Router} from 'react-router-dom'
 import Lista from './Lista.jsx';
 import Agregar from './Agregar.jsx';
+// import Playa from './Playa.jsx';
 
 class Park extends React.Component{
     constructor() {

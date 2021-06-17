@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import Card from './Card.jsx'
+import Playa from './Playa.jsx'
 import "./styles/Lista.css";
 import axios from 'axios'
 
@@ -18,7 +19,7 @@ const Lista = (props) => {
     //     })
     // }
     
-    
+    const [seleccionada, setSeleccionada] = useState(false)
 
     const [datos, setDatos] = useState(
         [
@@ -89,13 +90,23 @@ const Lista = (props) => {
     const xd = () =>{
       setDatos(datos)
       setN(n)
+      setSeleccionada(seleccionada)
       order()
       setFiltronombre(filtronombre)
       console.log((datos));
+    }
+    const [playa, setPlaya] = useState({})
+  const selecc = (xd) =>{
+    setSeleccionada(!seleccionada)
+    setPlaya(xd)
   }
 
     return (
         <div>
+          {
+            (seleccionada===false)?
+            <div>
+
         <button onClick={()=>xd()}>asdsad</button>
 
             <div>
@@ -111,17 +122,24 @@ const Lista = (props) => {
             <div>
 
                 {
-                    (datos.length===0)?<div className="No-result">No hay Resultados</div>:
-                    filt(datos,filtronombre).map(item =>(
-                            <Card key={item.id} playa={item}></Card>
-                            )
-                            )
-                        }
+                  (datos.length===0)?<div className="No-result">No hay Resultados</div>:
+                  filt(datos,filtronombre).map(item =>(
+                    <Card sel={selecc} key={item.id} playa={item}></Card>
+                    )
+                    )
+                  }
                 
             </div>
                 {n.adsa}
+                  </div>:
+//playa pagina*---------------------------------------
+                  <div>
+                    <Playa playa={playa}></Playa>
+                    </div>
+              }
         </div>
-    )
-}
-
-export default Lista
+        )
+      }
+      
+      export default Lista
+      
