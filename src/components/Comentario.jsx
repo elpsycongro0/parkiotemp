@@ -34,20 +34,16 @@ const Comentario = (props) => {
         // console.log(datos);
       },[]);
 
-      const xd = () =>{
-          console.log(lista);
-      }
 
     return (
         <div className="Comentario">
-            <button onClick={()=>xd()}></button>
             <div className="Card-name">
              Comentarios
             </div>
             {
 
                 (lista.length===0)? <h6>No tiene comentarios</h6>:
-                lista.map(item=>
+                lista.filter(item=>item.idusuario!=="admin").map(item=>
                     (
                         <div key={item.idc}>
 

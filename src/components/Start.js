@@ -15,7 +15,7 @@ import mapa from '../images/mapa.png'
 import spain from '../images/spain.png'
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import Card from './Card.js'
-import Park from './Park.js'
+import ParkWrapper from './Park.js'
 import Lista from './Lista.jsx';
 import Agregar from './Agregar.jsx';
 
@@ -66,10 +66,13 @@ class Start extends React.Component{
     render(){
 
         if(this.state.isLogged)
-            return(
+            {
+                console.log(this.state.isLogged)
+                return(
                 <Router>
-                <Park />
+                    <ParkWrapper />
                 </Router>);
+            }
 
         return (
             <Router>
@@ -99,9 +102,9 @@ class Start extends React.Component{
                     {/* <Router> */}
                         
                     <Switch>
-                        <Route path="/dashboard" >
+                        {/*<Route path="/dashboard" >
                             <Park></Park>
-                        </Route>
+                        </Route>*/}
                         <Route path="/busqueda">
                             <Lista></Lista>
                         </Route>

@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react'
 import Card from './Card.jsx'
 import Playa from './Playa.jsx'
 import "./styles/Lista.css";
+import { Link} from 'react-router-dom'
 import axios from 'axios'
 
 const Lista = (props) => {
@@ -32,7 +33,6 @@ const Lista = (props) => {
     )
 
 
-    const [n, setN] = useState({adsa:""})
     
     const datosGET = () =>{
         axios({
@@ -71,15 +71,7 @@ const Lista = (props) => {
     }
 
 
-    const order = (ls) =>{
-
-
-      return(
-        <div>
-          hasda
-        </div>
-      )
-    }
+    
     
     const actfiltronombre = (s) =>{
       var ds = (s)?s.target.value:""
@@ -87,14 +79,14 @@ const Lista = (props) => {
     }
 
 
-    const xd = () =>{
-      setDatos(datos)
-      setN(n)
-      setSeleccionada(seleccionada)
-      order()
-      setFiltronombre(filtronombre)
-      console.log((datos));
-    }
+    // const xd = () =>{
+    //   setDatos(datos)
+    //   setN(n)
+    //   setSeleccionada(seleccionada)
+    //   order()
+    //   setFiltronombre(filtronombre)
+    //   console.log((datos));
+    // }
     const [playa, setPlaya] = useState({})
   const selecc = (xd) =>{
     setSeleccionada(!seleccionada)
@@ -107,7 +99,8 @@ const Lista = (props) => {
             (seleccionada===false)?
             <div>
 
-        <button onClick={()=>xd()}>asdsad</button>
+          <Link className="Asd" to="/agregar"> Agregar Playa </Link>
+        {/* <button onClick={()=>xd()}>asdsad</button> */}
 
             <div>
             <form>
@@ -130,11 +123,10 @@ const Lista = (props) => {
                   }
                 
             </div>
-                {n.adsa}
                   </div>:
 //playa pagina*---------------------------------------
                   <div>
-                    <Playa playa={playa}></Playa>
+                    <Playa sel={selecc} playa={playa}></Playa>
                     </div>
               }
         </div>

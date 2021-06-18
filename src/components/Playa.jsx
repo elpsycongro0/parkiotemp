@@ -25,12 +25,15 @@ const Playa = (props) => {
       },[]);
 
     return (
+            <div>
+
+        <button className={"Boton"} onClick={()=>props.sel()}>Regresar</button>
         <div className="Item">
             
             
             <div className="row">
                     <div className="col-3 col-sm3">
-                    <img className="Imagen" src={"https://i1.sndcdn.com/avatars-000510931248-u9fjgt-t240x240.jpg"} alt="" />
+                    <img className="Imagen" src={playa.img} alt={playa.nombre} />
                     </div>
 
                     <div className="col-3">
@@ -54,13 +57,14 @@ const Playa = (props) => {
                         <h6>Añadir Comentario</h6>
                         <form >
                             {/* <input onChange={actCom} placeholder="REsumen" type="text"></input> */}
-                            <input onChange={actCom} placeholder="Comentario" type="text"></input>
-                            <input placeholder="puntaje" type="number"></input>
+                            <input className={"Form"} onChange={actCom} placeholder="Comentario" type="text"></input>
+                            <input className={"Forms"} placeholder="puntaje" type="number"></input>
                         </form>
-                        <button onClick={()=>xd()}>wefw</button>
+                        <button onClick={()=>xd()}>Post</button>
                     </div>
-                </div>
+                </div>aasds
         </div>
+            </div>
     )
 }
 

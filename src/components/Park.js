@@ -1,11 +1,6 @@
 import React from 'react';
-// import Card from './Card.js';
-/*import {Registro} from './Registro.js';
-import WrapperRegistro from './RegistroChilds.js';
-import RegistroCompleto from './RegistroCompleto.js';
-import {Acceder} from './Acceder.js';
-import WrapperAcceder from './AccederChilds.js';
-import AccederCompleto from './AccederCompleto.js';*/
+import { useHistory } from "react-router-dom";
+
 import "./styles/Park.css";
 
 import parkioLogo from '../images/parkio.png'
@@ -18,21 +13,18 @@ import Agregar from './Agregar.jsx';
 // import Playa from './Playa.jsx';
 
 class Park extends React.Component{
-    constructor() {
-        super();
-        this.logOut = this.logOut.bind(this);
-    }
 
-    logOut = () =>{
+    /*logOut = () =>{
         console.log("hola");
-        this.context.router.push({
+        const hst=useHistory();
+        hst.push({
             pathname: '/',
             state: {isLogged: false}
         })
-    }
+    }*/
 
     render(){
-
+        const { logOut } = this.props;
         return (
             <Router>
 
@@ -43,21 +35,13 @@ class Park extends React.Component{
                         {/* <div className="Park-header-actions-info">Información</div> */}
                         <Link to="/#">Información</Link>
                         <Link to="/busqueda">Búsqueda</Link>
-                        <a href="/" onClick={this.logOut}>SALIR</a>
+                        <a href="/" onClick={logOut}>SALIR</a>
                         {/*<a href="#" onClick={() => this.showModal(1)}>REGISTRO</a>
                         <a href="#" onClick={() => this.showModal(2)}>ACCEDER</a>*/}
 
                         <img src={spain} alt="idioma"/>
                     </div>
                 </div>
-                {/*<Registro show={this.state.show} activate={this.state.which} handleClose={this.hideModal}>
-                    {!this.state.isSubmitted ? <WrapperRegistro submitForm=
-                       {this.submitForm} /> : <RegistroCompleto />}
-                </Registro>
-                <Acceder show={this.state.show} activate={this.state.which} handleClose={this.hideModal}>
-                    {!this.state.isLogged ? <WrapperAcceder submitForm=
-                       {this.logForm} /> : <AccederCompleto />}
-                </Acceder>*/}
                 <div className="Park-center">
                     {/* <Router> */}
                         
@@ -96,4 +80,21 @@ class Park extends React.Component{
     }
 }
 
-export default Park;
+
+
+function Historial(){
+
+    let history = useHistory();
+    
+    function handleClick() {
+        history.push({
+            pathname: '/',
+            state: {isLogged: false}
+        });
+    }
+
+    return (<Park logOut={handleClick} /> 
+        )
+}
+
+export default Historial;

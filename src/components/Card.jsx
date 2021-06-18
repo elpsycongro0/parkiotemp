@@ -31,6 +31,7 @@ const Card = (props) => {
                     <div className="Card-opinions-title">Descripción</div>
                     <div className="Card-opinions">{playa.descripcion}</div>
 
+                <button onClick={()=>xd()}>Ver Detalles</button>
                     </div>
                     <div className="col-6">
                         
@@ -40,7 +41,6 @@ const Card = (props) => {
                 </div>
 
 
-                <button onClick={()=>xd()}>wefwefwe</button>
                 </div>
     )
 }
