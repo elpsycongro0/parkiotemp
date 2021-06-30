@@ -18,16 +18,10 @@ import Card from './Card.js'
 import ParkWrapper from './Park.js'
 import Lista from './Lista.jsx';
 import Agregar from './Agregar.jsx';
+import ReactGA from 'react-ga';
 
-/*function AuthenticatedRoute({
-    component : isLogged}){
-    return(
-        <Route
-            render={(props) => isLogged === true
-                ? <Park/>
-                : <Redirect to='/' />} />
-        )
-}*/
+ReactGA.initialize('G-MGL2EGRWC9');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 class Start extends React.Component{
     constructor() {
@@ -61,6 +55,19 @@ class Start extends React.Component{
 
     logForm = () => {
         this.setState({isLogged: true});
+    }
+
+    componentDidMount(){
+        const script = document.createElement("script");
+
+        script.src = "https://www.googletagmanager.com/gtag/js?id=G-MGL2EGRWC9";
+        script.async = true;
+
+        document.head.appendChild(script);
+
+        const script2 =document.createElement("script");
+        script2.innerHTML ="window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());";
+        document.head.appendChild(script2);        
     }
 
     render(){
